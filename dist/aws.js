@@ -16,10 +16,11 @@ exports.copyFinalDist = exports.downloadS3Folder = void 0;
 const aws_sdk_1 = require("aws-sdk");
 const fs_1 = __importDefault(require("fs"));
 const path_1 = __importDefault(require("path"));
+require("dotenv").config();
 const s3 = new aws_sdk_1.S3({
-    accessKeyId: "e8a391d9a2320f4bc184dc416aa4a549",
-    secretAccessKey: "9fa7de05e45d1ea081fa6e110f3e93f842798115e4f0597f3c71cb6766e923d4",
-    endpoint: "https://0665b29569da4375a118e9c100df0bbd.r2.cloudflarestorage.com",
+    endpoint: process.env.ENDPOINT,
+    accessKeyId: process.env.ACCESSKEYID,
+    secretAccessKey: process.env.SECRETACCESSKEY,
 });
 // output/asdasd
 function downloadS3Folder(prefix) {
